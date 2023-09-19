@@ -1,6 +1,12 @@
+import { useDispatch, useSelector } from "react-redux";
+import { changeMenuDisplay } from "../../redux/slices/globalSlice";
+
 const Sidebar = () => {
+  const dispatch = useDispatch();
+  const menuDisplay = useSelector((state) => state.global.menuDisplay);
+
   return (
-    <aside>
+    <aside className={menuDisplay}>
       <div className="top">
         <div className="logo">
           <img src="./images/logo.png" alt="logo" />
@@ -8,7 +14,11 @@ const Sidebar = () => {
             EGA<span className="danger">TOR</span>
           </h2>
         </div>
-        <div className="close" id="close-btn">
+        <div
+          className="close"
+          id="close-btn"
+          onClick={() => dispatch(changeMenuDisplay("aside-none"))}
+        >
           <span className="material-icons-sharp">close</span>
         </div>
       </div>

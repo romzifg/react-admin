@@ -53,7 +53,7 @@ html {
     font-size: 14px;
 }
 
-body {
+.body {
     width: 100vw;
     height: 100vh;
     font-family: poppins, sans-serif;
@@ -696,4 +696,12 @@ main .recent-orders a {
     .right .top button span {
         font-size: 2rem;
     }
+}
+
+.aside-none {
+    display: none;
+}
+
+.aside-block {
+    display: block;
 }

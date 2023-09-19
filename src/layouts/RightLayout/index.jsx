@@ -1,13 +1,32 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+  changeMenuDisplay,
+  changeDarkTheme,
+} from "../../redux/slices/globalSlice";
+
 const RightLayout = () => {
+  const dispatch = useDispatch();
+  const isDark = useSelector((state) => state.global.isDark);
+
   return (
     <div className="right">
       <div className="top">
-        <button id="menu-btn">
+        <button
+          id="menu-btn"
+          onClick={() => dispatch(changeMenuDisplay("aside-block"))}
+        >
           <span className="material-icons-sharp">menu</span>
         </button>
-        <div className="theme-toggler">
-          <span className="material-icons-sharp active">light_mode</span>
-          <span className="material-icons-sharp">dark_mode</span>
+        <div
+          className="theme-toggler"
+          onClick={() => dispatch(changeDarkTheme(!isDark))}
+        >
+          <span className={`material-icons-sharp ${!isDark ? "active" : ""}`}>
+            light_mode
+          </span>
+          <span className={`material-icons-sharp ${isDark ? "active" : ""}`}>
+            dark_mode
+          </span>
         </div>
         <div className="profile">
           <div className="info">
@@ -27,7 +46,7 @@ const RightLayout = () => {
         <div className="updates">
           <div className="update">
             <div className="profile-photo">
-              <img src="./images/profile-2.jpg" alt="profile" />
+              <img src="./assets/images/profile-2.jpg" alt="profile" />
             </div>
             <div className="message">
               <p>
@@ -39,7 +58,7 @@ const RightLayout = () => {
           </div>
           <div className="update">
             <div className="profile-photo">
-              <img src="./images/profile-3.jpg" alt="profile" />
+              <img src="./assets/images/profile-3.jpg" alt="profile" />
             </div>
             <div className="message">
               <p>
@@ -51,7 +70,7 @@ const RightLayout = () => {
           </div>
           <div className="update">
             <div className="profile-photo">
-              <img src="./images/profile-4.jpg" alt="profile" />
+              <img src="./assets/images/profile-4.jpg" alt="profile" />
             </div>
             <div className="message">
               <p>
