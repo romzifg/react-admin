@@ -16,3 +16,6 @@ Install package
 ```bash
   npm install
 ```
+
+## Authors
+- [@romzifg](https://github.com/romzifg)
