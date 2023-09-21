@@ -1,7 +1,6 @@
 import RightLayout from "../layouts/RightLayout";
 import Sidebar from "../layouts/Sidebar";
 import Dashboard from "../pages/Dashboard";
-import RightDashboard from "./RightDashboard";
 
 const AppContent = () => {
   return (
@@ -9,7 +8,7 @@ const AppContent = () => {
       <div className="container">
         <Sidebar />
         <Dashboard />
-        <RightLayout children={<RightDashboard />} />
+        <RightLayout />
       </div>
     </div>
   );

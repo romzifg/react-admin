@@ -3,6 +3,8 @@ import {
   changeMenuDisplay,
   changeDarkTheme,
 } from "../../redux/slices/globalSlice";
+import "./styles.scss";
+import DetailDashboard from "./Comp/DetailDashboard";
 
 const RightLayout = (props) => {
   const dispatch = useDispatch();
@@ -40,7 +42,7 @@ const RightLayout = (props) => {
           </div>
         </div>
       </div>
-      {props.children}
+      <DetailDashboard />
     </div>
   );
 };
