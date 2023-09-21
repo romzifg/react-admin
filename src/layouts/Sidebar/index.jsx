@@ -1,9 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-import { changeMenuDisplay } from "../../redux/slices/globalSlice";
+import {
+  changeMenuDisplay,
+  changeSideActive,
+} from "../../redux/slices/globalSlice";
+import { MenuList } from "./MenuList";
+import "./style.scss";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const menuDisplay = useSelector((state) => state.global.menuDisplay);
+  const sideIsActive = useSelector((state) => state.global.sideIsActive);
 
   return (
     <aside className={menuDisplay}>
@@ -24,43 +30,17 @@ const Sidebar = () => {
       </div>
 
       <div className="sidebar">
-        <a href="#">
-          <span className="material-icons-sharp">dashboard</span>
-          <h3>Dashboard</h3>
-        </a>
-        <a href="#" className="active">
-          <span className="material-icons-sharp">person</span>
-          <h3>Customers</h3>
-        </a>
-        <a href="#">
-          <span className="material-icons-sharp">receipt_long</span>
-          <h3>Orders</h3>
-        </a>
-        <a href="#">
-          <span className="material-icons-sharp">insights</span>
-          <h3>Analytics</h3>
-        </a>
-        <a href="#">
-          <span className="material-icons-sharp">mail_outline</span>
-          <h3>Messages</h3>
-          <span className="message-count">26</span>
-        </a>
-        <a href="#">
-          <span className="material-icons-sharp">inventory</span>
-          <h3>Products</h3>
-        </a>
-        <a href="#">
-          <span className="material-icons-sharp">report_gmailerrorred</span>
-          <h3>Reports</h3>
-        </a>
-        <a href="#">
-          <span className="material-icons-sharp">settings</span>
-          <h3>Settings</h3>
-        </a>
-        <a href="#">
-          <span className="material-icons-sharp">add</span>
-          <h3>Add Products</h3>
-        </a>
+        {MenuList.map((el) => (
+          <a
+            key={el.key}
+            href="#"
+            onClick={() => dispatch(changeSideActive(el.key))}
+            className={sideIsActive === el.key ? "active" : ""}
+          >
+            {el.icon}
+            <h3>{el.title}</h3>
+          </a>
+        ))}
         <a href="#">
           <span className="material-icons-sharp">logout</span>
           <h3>Log Out</h3>

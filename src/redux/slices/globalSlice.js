@@ -4,7 +4,8 @@ const globalSlice = createSlice({
     name: 'global',
     initialState: {
         menuDisplay: '',
-        isDark: false
+        isDark: false,
+        sideIsActive: 'dashboard_menu',
     },
     reducers: {
         changeMenuDisplay: (state, action) => {
@@ -12,9 +13,12 @@ const globalSlice = createSlice({
         },
         changeDarkTheme: (state, action) => {
             state.isDark = action.payload
+        },
+        changeSideActive: (state, action) => {
+            state.sideIsActive = action.payload
         }
     }
 })
 
-export const { changeMenuDisplay, changeDarkTheme } = globalSlice.actions
+export const { changeMenuDisplay, changeDarkTheme, changeSideActive } = globalSlice.actions
 export default globalSlice.reducer
