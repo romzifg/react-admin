@@ -1,11 +1,14 @@
-# React Admin 
+# React Admin CMS
 ## Description
-React Admin for Shop CMS using javascript and React JS.
+CMS for Web Online Shop using javascript and React JS.
 
 Make sure you have installed git and node js on your device.
 otherwise, you can download it at
 - [Git](https://git-scm.com/)
 - [Node](https://nodejs.org/en)
+
+You can find React documentation at
+- [React](https://react.dev)
 
 Clone the project
 ```bash
